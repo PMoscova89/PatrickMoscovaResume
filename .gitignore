@@ -1,0 +1,94 @@
+# Xcode & macOS
+.DS_Store
+build/
+DerivedData/
+xcuserdata/
+xcuserstate
+
+# Xcode project files
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+project.xcworkspace/
+!default.xcworkspace
+
+# Swift Package Manager
+.build/
+.swiftpm/xcode/package.xcworkspace/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Accio dependency manager
+Dependencies/
+.accio/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code coverage & test results
+*.xcresult
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# Playgrounds
+*.playground
+timeline.xctimeline
+playground.xcworkspace
+
+# App file
+*.ipa
+
+# Archives
+*.xcarchive
+
+# SwiftPM Packages
+Package.resolved
+
+# SwiftLint
+.swiftlint.yml
+
+# User-specific files
+*.swp
+*.swo
+*~.nib
+
+# Objective-C: compiled files
+*.o
+*.LinkFileList
+*.hmap
+
+# Objective-C: module cache
+ModuleCache.noindex/
+*.modulemap
+
+# C/C++: compiled files
+*.obj
+*.elf
+*.so
+*.swp
+
+# Other package managers
+Package.resolved
+
+# Misc
+.idea/
+*.orig
+
+# Crashlytics
+crashlytics-build.properties
+
+# Bundler
+.bundle
+
+# SPM integration
+.sourcePackages/
