@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Landing View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="PatrickMoscovaResume" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_label" translatesAutoresizingMaskIntoConstraints="NO" id="UaL-AU-g7H">
+                                <rect key="frame" x="25.333333333333343" y="167.00000000000003" width="342.66666666666663" height="342.66666666666674"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zq-Nw-EwJ" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
+                                <rect key="frame" x="25.333333333333336" y="533.66666666666663" width="85.333333333333314" height="35"/>
+                                <color key="tintColor" name="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Resume"/>
+                                <connections>
+                                    <action selector="resumeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t98-sg-PLN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG5-t1-rTg" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
+                                <rect key="frame" x="25.333333333333336" y="592.66666666666663" width="86.333333333333314" height="35"/>
+                                <color key="tintColor" name="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Projects"/>
+                                <connections>
+                                    <action selector="projectsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mE7-9y-LXY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6zq-Nw-EwJ" firstAttribute="top" secondItem="UaL-AU-g7H" secondAttribute="bottom" constant="24" id="46a-Jg-7Jk"/>
+                            <constraint firstItem="JG5-t1-rTg" firstAttribute="top" secondItem="6zq-Nw-EwJ" secondAttribute="bottom" constant="24" id="6iJ-dT-WjX"/>
+                            <constraint firstItem="6zq-Nw-EwJ" firstAttribute="leading" secondItem="UaL-AU-g7H" secondAttribute="leading" id="Jq3-EV-BtQ"/>
+                            <constraint firstItem="UaL-AU-g7H" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.402191" id="c7D-GC-vjU"/>
+                            <constraint firstItem="UaL-AU-g7H" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="chp-g5-8Pe"/>
+                            <constraint firstItem="UaL-AU-g7H" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.871925" id="dKv-cd-33s"/>
+                            <constraint firstItem="UaL-AU-g7H" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.75" id="y96-Yu-aHH"/>
+                            <constraint firstItem="JG5-t1-rTg" firstAttribute="leading" secondItem="6zq-Nw-EwJ" secondAttribute="leading" id="zYj-DS-E8e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="projectsButton" destination="JG5-t1-rTg" id="J2Z-dq-CZR"/>
+                        <outlet property="resumeButton" destination="6zq-Nw-EwJ" id="mrS-Jx-BWi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.1679389312977" y="-23.239436619718312"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo_label" width="342.66665649414062" height="342.66665649414062"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.85519611839999998" green="0.85519611839999998" blue="0.85519611839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="labelColor">
+            <color red="0.13531374930000001" green="0.1353137791" blue="0.13531374930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
