@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Resume-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController title="Resume" id="Y6W-OH-hqX" customClass="ResumeChoiceViewController" customModule="PatrickMoscovaResume" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EaA-6y-M1z" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
+                                <rect key="frame" x="15.999999999999996" y="118" width="60.666666666666657" height="260"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="UIKit"/>
+                                <connections>
+                                    <action selector="uiKitButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="N8D-gA-2Ym"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iS-4L-hGP" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
+                                <rect key="frame" x="16" y="508" width="85" height="260"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="SwiftUI"/>
+                                <connections>
+                                    <action selector="swiftUIButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vew-fl-uts"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7iS-4L-hGP" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.918575" id="EBN-x5-3we"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7iS-4L-hGP" secondAttribute="bottom" constant="16" id="Eyw-EN-TOd"/>
+                            <constraint firstItem="7iS-4L-hGP" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.305164" id="GcW-4L-UgP"/>
+                            <constraint firstItem="EaA-6y-M1z" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.305164" id="Gsq-wy-xZX"/>
+                            <constraint firstItem="EaA-6y-M1z" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="JBz-h9-918"/>
+                            <constraint firstItem="7iS-4L-hGP" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailingMargin" constant="16" id="LJ0-CE-lst"/>
+                            <constraint firstItem="EaA-6y-M1z" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="c7u-4V-pCs"/>
+                            <constraint firstItem="EaA-6y-M1z" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.918575" id="gPk-ed-udr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EaA-6y-M1z" secondAttribute="trailing" constant="16" id="wvC-6A-QFT"/>
+                            <constraint firstItem="7iS-4L-hGP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zMY-Kk-Rgg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="swiftUIButton" destination="7iS-4L-hGP" id="Uvm-la-Kn2"/>
+                        <outlet property="uiKitButton" destination="EaA-6y-M1z" id="G7v-PY-jDM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="-17.605633802816904"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

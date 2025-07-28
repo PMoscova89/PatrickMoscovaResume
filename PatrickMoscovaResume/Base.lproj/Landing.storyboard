@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sFD-uK-XU9">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -20,17 +20,18 @@
                                 <rect key="frame" x="25.333333333333343" y="167.00000000000003" width="342.66666666666663" height="342.66666666666674"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6zq-Nw-EwJ" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
-                                <rect key="frame" x="25.333333333333336" y="533.66666666666663" width="85.333333333333314" height="35"/>
-                                <color key="tintColor" name="labelColor"/>
+                                <rect key="frame" x="25.333333333333343" y="533.66666666666663" width="351.66666666666663" height="35"/>
+                                <color key="tintColor" name="label_color"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Resume"/>
                                 <connections>
                                     <action selector="resumeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t98-sg-PLN"/>
+                                    <segue destination="Wny-ql-hAC" kind="show" id="bHS-oa-NKr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG5-t1-rTg" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
-                                <rect key="frame" x="25.333333333333336" y="592.66666666666663" width="86.333333333333314" height="35"/>
-                                <color key="tintColor" name="labelColor"/>
+                                <rect key="frame" x="25.333333333333343" y="592.66666666666663" width="351.66666666666663" height="35"/>
+                                <color key="tintColor" name="label_color"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Projects"/>
                                 <connections>
@@ -39,11 +40,13 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <color key="backgroundColor" name="MyBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6zq-Nw-EwJ" firstAttribute="top" secondItem="UaL-AU-g7H" secondAttribute="bottom" constant="24" id="46a-Jg-7Jk"/>
                             <constraint firstItem="JG5-t1-rTg" firstAttribute="top" secondItem="6zq-Nw-EwJ" secondAttribute="bottom" constant="24" id="6iJ-dT-WjX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JG5-t1-rTg" secondAttribute="trailing" constant="16" id="8HK-sP-ibN"/>
                             <constraint firstItem="6zq-Nw-EwJ" firstAttribute="leading" secondItem="UaL-AU-g7H" secondAttribute="leading" id="Jq3-EV-BtQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6zq-Nw-EwJ" secondAttribute="trailing" constant="16" id="bne-ki-bpz"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.402191" id="c7D-GC-vjU"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="chp-g5-8Pe"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.871925" id="dKv-cd-33s"/>
@@ -51,6 +54,8 @@
                             <constraint firstItem="JG5-t1-rTg" firstAttribute="leading" secondItem="6zq-Nw-EwJ" secondAttribute="leading" id="zYj-DS-E8e"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="KTd-Ps-e3V"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="projectsButton" destination="JG5-t1-rTg" id="J2Z-dq-CZR"/>
                         <outlet property="resumeButton" destination="6zq-Nw-EwJ" id="mrS-Jx-BWi"/>
@@ -58,16 +63,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1064.885496183206" y="-23.239436619718312"/>
+        </scene>
+        <!--Resume-->
+        <scene sceneID="0xr-TJ-Qjf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Resume" id="Wny-ql-hAC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IIm-a1-SvN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-cH-eX0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1735.1145038167938" y="5.6338028169014089"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mpK-X8-dFj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sFD-uK-XU9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uTE-Nd-BM6">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="A0z-Qq-GLT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evL-iv-0zN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="138.1679389312977" y="-23.239436619718312"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo_label" width="342.66665649414062" height="342.66665649414062"/>
-        <namedColor name="BackgroundColor">
-            <color red="0.85519611839999998" green="0.85519611839999998" blue="0.85519611839999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="MyBackgroundColor">
+            <color red="0.85500001907348633" green="0.85500001907348633" blue="0.85500001907348633" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="labelColor">
-            <color red="0.13531374930000001" green="0.1353137791" blue="0.13531374930000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="label_color">
+            <color red="0.13500000536441803" green="0.13500000536441803" blue="0.13500000536441803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
