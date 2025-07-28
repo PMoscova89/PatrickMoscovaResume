@@ -13,10 +13,10 @@ class IconTextButton: UIButton {
     func configure(
         imageName: String,
         title: String,
-        imageSize: CGFloat = 24,
-        font: UIFont = .systemFont(ofSize: 18),
+        imageSize: CGFloat = Constants.IconTextButton.defaultImageSize,
+        font: UIFont = .systemFont(ofSize: Constants.IconTextButton.defaultFontSize),
         imageColor: UIColor? = nil, // Optional: tint
-        spacing: CGFloat = 8
+        spacing: CGFloat = Constants.IconTextButton.defaultSpacing
     ) {
         setTitle(title, for: .normal)
         titleLabel?.font = font
@@ -43,6 +43,12 @@ class IconTextButton: UIButton {
             config.imagePlacement = .leading
             config.imagePadding = spacing
             config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+            
+            config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
+                var newAttributes = attributes
+                newAttributes.font = font
+                return newAttributes
+            }
 
             // Icon color/tinting
             if let imageColor = imageColor {
