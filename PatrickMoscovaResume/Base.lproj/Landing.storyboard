@@ -11,7 +11,7 @@
         <!--Landing View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingViewController" customModule="PatrickMoscovaResume" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LandingViewController" customModule="PatrickMoscovaResume" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Resume"/>
                                 <connections>
                                     <action selector="resumeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t98-sg-PLN"/>
-                                    <segue destination="Wny-ql-hAC" kind="show" id="bHS-oa-NKr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JG5-t1-rTg" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
@@ -64,16 +63,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.885496183206" y="-23.239436619718312"/>
-        </scene>
-        <!--Resume-->
-        <scene sceneID="0xr-TJ-Qjf">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Resume" id="Wny-ql-hAC" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="IIm-a1-SvN"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bl5-cH-eX0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1735.1145038167938" y="5.6338028169014089"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mpK-X8-dFj">
