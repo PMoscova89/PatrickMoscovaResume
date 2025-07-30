@@ -66,5 +66,15 @@ struct Constants {
         static let swiftUIButtonTitle = "SwiftUI"
         static let swiftButtonTitle = "Swift"
     }
+    
+    struct Storyboards {
+        static let landing = UIStoryboard(name: "Landing", bundle: nil)
+        static let resume = UIStoryboard(name: "Resume", bundle: nil)
+    }
+    
+    struct StoryboardIDS {
+        static let landingViewController = "LandingViewController"
+        static let resumeChoiceViewController = "ResumeChoiceViewController"
+    }
  
 }

@@ -9,8 +9,15 @@ import UIKit
 
 class LandingViewController: UIViewController {
 
+    enum LandingUserAction : UserAction {
+        case showResumeScreen
+        case showProjectScreen
+    }
+    
     @IBOutlet weak var resumeButton: IconTextButton!
     @IBOutlet weak var projectsButton: IconTextButton!
+    
+    weak var coordinator: LandingCoordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,6 +25,7 @@ class LandingViewController: UIViewController {
     }
 
     @IBAction func resumeButtonTapped(_ sender: Any) {
+        coordinator?.handle(action: LandingUserAction(.showResumeScreen) ?? .showResumeScreen)
     }
     
     @IBAction func projectsButtonTapped(_ sender: Any) {
@@ -30,5 +38,7 @@ extension LandingViewController {
         resumeButton.configure(imageName: Constants.ImageNames.logoLabel, title: "Resume")
         projectsButton.configure(imageName: Constants.ImageNames.logoLabel, title: "Projects")
     }
+    
 }
+
 
