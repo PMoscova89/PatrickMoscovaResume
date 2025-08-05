@@ -37,6 +37,16 @@
                                     <action selector="projectsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mE7-9y-LXY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aT2-sE-DaR" customClass="IconTextButton" customModule="PatrickMoscovaResume" customModuleProvider="target">
+                                <rect key="frame" x="16" y="651.66666666666663" width="361" height="35"/>
+                                <color key="tintColor" name="label_color"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Technical Skills"/>
+                                <connections>
+                                    <action selector="projectsButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JPH-e4-rys"/>
+                                    <action selector="technicalSkillButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zvo-L1-eaL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="MyBackgroundColor"/>
@@ -45,10 +55,13 @@
                             <constraint firstItem="JG5-t1-rTg" firstAttribute="top" secondItem="6zq-Nw-EwJ" secondAttribute="bottom" constant="24" id="6iJ-dT-WjX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JG5-t1-rTg" secondAttribute="trailing" constant="16" id="8HK-sP-ibN"/>
                             <constraint firstItem="6zq-Nw-EwJ" firstAttribute="leading" secondItem="UaL-AU-g7H" secondAttribute="leading" id="Jq3-EV-BtQ"/>
+                            <constraint firstItem="aT2-sE-DaR" firstAttribute="top" secondItem="JG5-t1-rTg" secondAttribute="bottom" constant="24" id="Ug4-NE-VVZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6zq-Nw-EwJ" secondAttribute="trailing" constant="16" id="bne-ki-bpz"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.402191" id="c7D-GC-vjU"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="chp-g5-8Pe"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.871925" id="dKv-cd-33s"/>
+                            <constraint firstItem="aT2-sE-DaR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hsw-GT-9B0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aT2-sE-DaR" secondAttribute="trailing" constant="16" id="w99-WU-Oy6"/>
                             <constraint firstItem="UaL-AU-g7H" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.75" id="y96-Yu-aHH"/>
                             <constraint firstItem="JG5-t1-rTg" firstAttribute="leading" secondItem="6zq-Nw-EwJ" secondAttribute="leading" id="zYj-DS-E8e"/>
                         </constraints>
@@ -58,6 +71,7 @@
                     <connections>
                         <outlet property="projectsButton" destination="JG5-t1-rTg" id="J2Z-dq-CZR"/>
                         <outlet property="resumeButton" destination="6zq-Nw-EwJ" id="mrS-Jx-BWi"/>
+                        <outlet property="technicalSkillsButton" destination="aT2-sE-DaR" id="0en-uZ-Snd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

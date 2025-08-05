@@ -12,6 +12,8 @@ extension LandingCoordinator.LandingUserAction {
                 self = .showResumeScreen
             case .showProjectScreen:
                 self = .showProjectScreen
+            case .showTechSkillsScreen:
+                self = .showTechSkillsScreen
         }
     }
 }
@@ -23,6 +25,8 @@ extension LandingViewController.LandingUserAction {
                 self = .showResumeScreen
             case .showProjectScreen:
                 self = .showProjectScreen
+            case .showTechSkillsScreen:
+                self = .showTechSkillsScreen
         }
     }
 }

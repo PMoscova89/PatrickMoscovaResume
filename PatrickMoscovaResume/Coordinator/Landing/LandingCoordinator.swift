@@ -11,10 +11,12 @@ class LandingCoordinator: Coordinator {
     enum LandingUserAction : UserAction {
         case showResumeScreen
         case showProjectScreen
+        case showTechSkillsScreen
     }
     
     private weak var navigationController: UINavigationController?
     private weak var landingViewController: LandingViewController?
+    private var technicalSkillsCoordinator: TechnicalSkillsCoordinator?
     
     private var window: UIWindow? {
         UIApplication.shared.connectedScenes
@@ -65,6 +67,9 @@ class LandingCoordinator: Coordinator {
             case .showResumeScreen:
                 print("showResumeScreen")
                 showResume()
+            case .showTechSkillsScreen:
+                print("show Tech Skills")
+                showTechSkillsSelection()
         }
     }
     
@@ -80,6 +85,14 @@ extension LandingCoordinator {
         if let landingVC = landingViewController {
             display(resumeVC, from: landingVC)
         }
+    }
+    
+    func showTechSkillsSelection() {
+        if let navigationController = navigationController {
+            technicalSkillsCoordinator = TechnicalSkillsCoordinator(navigationController: navigationController)
+        }
+        technicalSkillsCoordinator?.start()
+      
         
     }
 }

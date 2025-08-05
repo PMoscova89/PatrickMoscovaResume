@@ -80,6 +80,8 @@ class IconTextButton: UIButton {
 
             // Size the imageView for assets
             if let imageView = self.imageView {
+                imageView.layer.masksToBounds = true
+                imageView.layer.cornerRadius = imageSize / 2
                 imageView.translatesAutoresizingMaskIntoConstraints = false
                 NSLayoutConstraint.deactivate(imageView.constraints)
                 NSLayoutConstraint.activate([

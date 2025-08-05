@@ -77,4 +77,7 @@ struct Constants {
         static let resumeChoiceViewController = "ResumeChoiceViewController"
     }
  
+    struct CellIDs {
+        static let skillCellID = "TechnicalSkillTableViewCell"
+    }
 }
