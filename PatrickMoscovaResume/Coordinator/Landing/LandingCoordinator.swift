@@ -76,7 +76,9 @@ class LandingCoordinator: Coordinator {
     
 }
 
+//MARK: Action Extensions
 extension LandingCoordinator {
+    @objc
     func showResume() {
         let storyboard = Constants.Storyboards.resume
         guard let resumeVC = storyboard.instantiateViewController(withIdentifier: Constants.StoryboardIDS.resumeChoiceViewController) as? ResumeChoiceViewController else {
@@ -86,7 +88,7 @@ extension LandingCoordinator {
             display(resumeVC, from: landingVC)
         }
     }
-    
+    @objc
     func showTechSkillsSelection() {
         if let navigationController = navigationController {
             technicalSkillsCoordinator = TechnicalSkillsCoordinator(navigationController: navigationController)
