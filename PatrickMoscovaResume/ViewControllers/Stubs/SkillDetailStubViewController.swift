@@ -15,7 +15,8 @@ class SkillDetailStubViewController : UIViewController {
     
     init(skillName: TechnicalSkill) {
         self.skillName = skillName
-        super.init()
+        super.init(nibName: nil, bundle: nil)
+        title = skillName.rawValue
     }
     
     override func viewDidLoad() {
@@ -28,17 +29,16 @@ class SkillDetailStubViewController : UIViewController {
 
 extension SkillDetailStubViewController {
     fileprivate func setupLabel() {
-        title = skillName.rawValue
         
         let label = UILabel()
         label.text = "This is a stub view for \(skillName.rawValue)"
         label.translatesAutoresizingMaskIntoConstraints = false
-        
+        view.addSubview(label)
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         
-        view.addSubview(label)
+        
     }
 }

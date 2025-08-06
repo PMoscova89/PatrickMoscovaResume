@@ -8,7 +8,7 @@
 import UIKit
 
 class TechnicalSkillsCoordinator: Coordinator {
-    private let navigationController : UINavigationController
+    private(set) var navigationController : UINavigationController
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
