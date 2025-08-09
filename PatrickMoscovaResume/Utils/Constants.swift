@@ -10,6 +10,21 @@ import CoreGraphics
 
 struct Constants {
     
+    
+    //MARK: - Button Dimensions
+    static let buttonHeight: CGFloat = 44
+    static let buttonHeightMedium: CGFloat = 50
+    static let buttonHeightSmall: CGFloat = 36
+    static let buttonHeightLarge: CGFloat = 64
+    static let buttonHeightXLarge: CGFloat = 100
+    static let buttonHeightXXLarge: CGFloat = 120
+    static let buttonWidth: CGFloat = 200
+    static let buttonWidthSmall: CGFloat = 44
+    static let buttonWidthMedium: CGFloat = 100
+    static let buttonWidthLarge: CGFloat = 400
+    static let buttonCornerRadius: CGFloat = 8
+
+    
     // MARK: - General Spacing
     // General spacing
     static let paddingSmall: CGFloat = 4
@@ -17,6 +32,9 @@ struct Constants {
     static let paddingRegular: CGFloat = 12
     static let paddingLarge: CGFloat = 16
     static let paddingXLarge: CGFloat = 20
+    static let paddingXXLarge: CGFloat = 32
+    static let padding3XLarge: CGFloat = 64
+    
     
     // MARK: - General Font Sizes
     static let fontSize: CGFloat = 14

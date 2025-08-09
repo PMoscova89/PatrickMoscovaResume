@@ -16,7 +16,7 @@ protocol Coordinator: AnyObject {
 extension Coordinator {
     func handle(action: UserAction) {}
     func display(_ viewController: UIViewController, from parent: UIViewController, animated: Bool = true) {
-        if let navVC = parent.navigationController {
+        if let navVC = (parent as? UINavigationController) ?? parent.navigationController {
             navVC.pushViewController(viewController, animated: animated)
         }else {
             parent.present(viewController, animated: animated)

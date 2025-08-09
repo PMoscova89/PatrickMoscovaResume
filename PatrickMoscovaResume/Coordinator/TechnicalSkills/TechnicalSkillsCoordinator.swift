@@ -9,6 +9,7 @@ import UIKit
 
 class TechnicalSkillsCoordinator: Coordinator {
     private(set) var navigationController : UINavigationController
+    private var avFoundationCoordinator: AVFoundationCoordinator?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -26,7 +27,15 @@ class TechnicalSkillsCoordinator: Coordinator {
     }
     
     func showDetail(for skill: TechnicalSkill) {
-        let detailVC = SkillDetailStubViewController(skillName: skill)
-        navigationController.pushViewController(detailVC, animated: true)
+        switch skill {
+            case .avFoundation:
+                avFoundationCoordinator = AVFoundationCoordinator(parent: navigationController)
+                avFoundationCoordinator?.start()
+                break
+            default:
+                let detailVC = SkillDetailStubViewController(skillName: skill)
+                navigationController.pushViewController(detailVC, animated: true)
+                break
+        }
     }
 }
