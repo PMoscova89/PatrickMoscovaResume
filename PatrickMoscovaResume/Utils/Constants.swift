@@ -98,4 +98,27 @@ struct Constants {
     struct CellIDs {
         static let skillCellID = "TechnicalSkillTableViewCell"
     }
+    
+    // MARK: - Media Player (Audio/Video)
+    struct MediaPlayer {
+        // Layout
+        static let stackSpacing: CGFloat = paddingLarge // 16
+        
+        // Slider
+        static let sliderMin: Float = 0
+        static let sliderMax: Float = 1
+        
+        // Fonts
+        static let buttonFontSize: CGFloat = fontSizeMedium   // 18
+        static let timeFontSize: CGFloat = fontSize           // 14
+        
+        // Strings
+        struct Strings {
+            static let importTitle = "Import"
+            static let playTitle = "Play"
+            static let pauseTitle = "Pause"
+            static let defaultTime = "0:00 / 0:00"
+        }
+    }
+    
 }
