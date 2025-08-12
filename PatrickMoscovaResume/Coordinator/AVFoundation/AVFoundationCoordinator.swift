@@ -37,13 +37,19 @@ final class AVFoundationCoordinator: Coordinator {
     }
     
     private func showAudio() {
-        
-        let audioPlayerViewController = UIViewController() //AudioPlayerViewController()
-        audioPlayerViewController.view.backgroundColor = .red
-        if let vc = viewController {
-            display(audioPlayerViewController, from: vc, animated: true)
+        let mediaController = AudioPlayerController()
+        if let url = Bundle.main.url(forResource: "i-need-dollar", withExtension: "mp3") {
+            mediaController.loadMedia(url: url)
+        }
+        let vc = MediaPlayerViewController(
+            controller: mediaController,
+            title: "Audio Player",
+            allowedContentTypes: [.audio, .mp3, .wav, .mpeg4Audio])
+    
+        if let vcParent = viewController {
+            display(vc, from: vcParent, animated: true)
         }else if let theParent = parent {
-            display(audioPlayerViewController, from: theParent, animated: true)
+            display(vc, from: theParent, animated: true)
         }
     }
     
