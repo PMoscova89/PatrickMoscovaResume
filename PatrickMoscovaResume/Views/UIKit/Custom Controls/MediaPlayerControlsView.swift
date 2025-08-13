@@ -30,6 +30,7 @@ final class MediaPlayerControlsView: UIView {
         playPauseButton.setTitle(Constants.MediaPlayer.Strings.playTitle, for: .normal)
         slider.minimumValue = 0
         slider.maximumValue = 1
+        slider.isContinuous = true
         timeLabel.textAlignment = .center
         timeLabel.text = "00:00 / 00:00"
         
