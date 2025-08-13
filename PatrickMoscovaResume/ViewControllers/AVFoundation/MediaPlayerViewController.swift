@@ -7,7 +7,7 @@
 
 import UIKit
 import UniformTypeIdentifiers
-
+import AVFoundation
 final class MediaPlayerViewController: UIViewController {
     
     private let controller: MediaPlayerControllerProtocol
@@ -15,6 +15,9 @@ final class MediaPlayerViewController: UIViewController {
     private let renderViewProvider: ( () -> UIView)?
     private let allowedContentTypes: [UTType]
     private var renderView: UIView?
+    private var didAutoLoadDemo: Bool = false
+    private var isScrubbing = false
+    private var wasPlayingBeforeScrubbing: Bool = false
     
     init(controller: MediaPlayerControllerProtocol,
          title: String = TechnicalSkill.avFoundation.rawValue,
@@ -38,6 +41,31 @@ final class MediaPlayerViewController: UIViewController {
         wireUpControls()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let rv = renderView {
+            rv.layer.sublayers?
+                .compactMap{ $0 as? AVPlayerLayer }
+                .forEach { $0.frame = rv.bounds}
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard didAutoLoadDemo == false else { return }
+        let isVideoFlow = allowedContentTypes.contains{
+            $0.conforms(to: .movie) || $0.conforms(to: .audiovisualContent)
+        }
+        guard isVideoFlow else {
+            print("is not video flow")
+            return
+        }
+        if let url = Bundle.main.url(forResource: "default_movie", withExtension: "mov", subdirectory: "Resources/Video") {
+            didAutoLoadDemo = true
+            controller.loadMedia(url: url)
+        }
+        
+    }
     
 }
 
@@ -54,17 +82,20 @@ extension MediaPlayerViewController {
             v.translatesAutoresizingMaskIntoConstraints = false
             renderView = v
             container.addArrangedSubview(v)
-            v.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35).isActive = true
+            v.heightAnchor.constraint(equalTo: v.widthAnchor, multiplier: 9/16).isActive = true
             controller.attachRenderView(v)
         }
         container.addArrangedSubview(controls)
         view.addSubview(container)
+        let guide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+            container.leadingAnchor.constraint(equalTo: guide.leadingAnchor,
                                                constant: Constants.paddingLarge),
-            container.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+            container.trailingAnchor.constraint(equalTo: guide.trailingAnchor,
                                                 constant: -Constants.paddingLarge),
             container.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            container.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: Constants.paddingLarge),
+            container.heightAnchor.constraint(equalTo: guide.heightAnchor, constant: 0.5)
         ])
         
     }
@@ -92,15 +123,27 @@ extension MediaPlayerViewController {
     }
     
     @objc private func scrubBegan() {
+        isScrubbing = true
+        wasPlayingBeforeScrubbing = controller.isPlaying
+        if wasPlayingBeforeScrubbing {
+            controller.handle(.pause)
+        }
         controller.handle(.scrubBegan)
     }
     
     @objc private func scrubEnded() {
         controller.handle(.scrubEnded)
-        if let duration = controller.duration {
-            let target = TimeInterval(controls.slider.value) * duration
-            controller.handle(.seek(toSeconds: target))
+        guard let duration = controller.duration else {
+            isScrubbing = false
+            return
         }
+        let target = TimeInterval(controls.slider.value) * duration
+        controller.handle(.seek(toSeconds: target))
+        controls.timeLabel.text = "\(TimeFormatting.mmss(target)) / \(TimeFormatting.mmss(duration))"
+        if wasPlayingBeforeScrubbing {
+            controller.handle(.play)
+        }
+        isScrubbing = false
     }
     
     @objc private func sliderChanged() {
@@ -133,6 +176,7 @@ extension MediaPlayerViewController : MediaPlayerControllerDelegate {
     }
     
     func mediaDidUpdateProgress(_ currentTime: TimeInterval) {
+        guard isScrubbing == false else { return }
         guard let duration = controller.duration, duration > 0 else { return }
         controls.slider.value = Float(currentTime / duration)
         controls.timeLabel.text = "\(TimeFormatting.mmss(currentTime)) / \(TimeFormatting.mmss(duration))"

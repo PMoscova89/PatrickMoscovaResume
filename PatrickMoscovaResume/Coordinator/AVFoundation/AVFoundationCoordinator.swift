@@ -54,12 +54,32 @@ final class AVFoundationCoordinator: Coordinator {
     }
     
     private func showVideo() {
-        let videoPlayerViewController = UIViewController() //VideoPlayerViewcontroller()
-        videoPlayerViewController.view.backgroundColor = .green
-        if let vc = viewController {
-            display(videoPlayerViewController, from: vc, animated: true)
+
+        let videoPlayerController = VideoPlayerController()
+        if let url = Bundle.main.url(forResource: "default_movie", withExtension: "mov") {
+            videoPlayerController.loadMedia(url: url)
+        }
+        
+        let makeRenderView: () -> UIView = {
+            let theView = UIView()
+            theView.backgroundColor = .black
+            theView.layer.cornerRadius = 8
+            theView.clipsToBounds = true
+            return theView
+            
+        }
+        
+        let vc = MediaPlayerViewController(
+            controller:videoPlayerController,
+            title: "default_movie.mov",
+            allowedContentTypes: [.movie, .mpeg4Movie, .quickTimeMovie],
+            renderViewProvider: makeRenderView
+        )
+        
+        if let vcParent = viewController {
+            display(vc, from: vcParent, animated: true)
         }else if let theParent = parent {
-            display(videoPlayerViewController, from: theParent, animated: true)
+            display(vc, from: theParent, animated: true)
         }
     }
     

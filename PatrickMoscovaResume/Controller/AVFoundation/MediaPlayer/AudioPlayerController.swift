@@ -20,7 +20,7 @@ final class AudioPlayerController: NSObject, MediaPlayerControllerProtocol {
     var currentTime: TimeInterval {player?.currentTime ?? 0}
     
     deinit{
-        //StopTimer()
+        stopTimer()
     }
     func loadMedia(url: URL) {
         do {
